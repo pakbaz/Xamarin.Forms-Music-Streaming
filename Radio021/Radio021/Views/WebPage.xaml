@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:vm="clr-namespace:Radio021.ViewModels" xmlns:view="clr-namespace:Radio021.Views"  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Radio021.Views.WebPage" Title="WebSite" Icon="web">
+       <ContentPage.BindingContext>
+        <vm:WebPageViewModel x:Name="WebPageViewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="White">
+            <ProgressBar BackgroundColor="Black" Progress="0.2" HorizontalOptions="FillAndExpand" x:Name="Progress" IsVisible="{Binding IsBusy}"/>
+            <WebView x:Name="Browser" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="https://example.com" />
+            <view:Radio BackgroundColor="{StaticResource VeryDarkGray}" VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

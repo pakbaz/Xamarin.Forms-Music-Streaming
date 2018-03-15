@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:converter="clr-namespace:Radio021.Converters" 
+    xmlns:dark="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Dark" 
+    x:Class="Radio021.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="backgroundColor">#33302E</Color>
+            <Color x:Key="White">#ffffff</Color>
+            <Color x:Key="LightRed">#ae0f00</Color>
+            <Color x:Key="DarkRed">#770000</Color>
+            <x:Double x:Key="fontSize">24</x:Double>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="PrimaryDark">#1976D2</Color>
+            <Color x:Key="SecondaryDark">#2d436c</Color>
+            <Color x:Key="DarkGray">#2A2A2A</Color>
+            <Color x:Key="VeryDarkGray">#222222</Color>
+            <Color x:Key="Black">#000000</Color>
+
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
+            <Color x:Key="DarkBackgroundColor">#C0C0C0</Color>
+            <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource LightRed}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource Black}" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

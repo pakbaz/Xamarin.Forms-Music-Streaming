@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CarouselPage BackgroundColor="Black" Title="Live Radio" Icon="radio" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:view="clr-namespace:Radio021.Views" xmlns:vm="clr-namespace:Radio021.ViewModels" xmlns:converter="clr-namespace:Radio021.Converters" x:Class="Radio021.Views.RadioPage">
+     <ContentPage Title="Now Playing">
+        <ContentPage.BindingContext>
+            <vm:RadioPageViewModel />
+        </ContentPage.BindingContext>
+        <ContentPage.Resources>
+            <ResourceDictionary>
+                <converter:InverseBooleanConverter x:Key="inverseBool">
+                </converter:InverseBooleanConverter>
+            </ResourceDictionary>
+        </ContentPage.Resources>
+        <ContentPage.Content>
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="{Binding ArtUrl}" x:Name="albumArt" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding IsBusy,Converter={StaticResource inverseBool}}" />
+                <Image Grid.Row="0" Grid.RowSpan="2" Source="logoLarge" x:Name="logo" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="300" WidthRequest="300" IsVisible="{Binding IsBusy}" />
+                <Label Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="{Binding CurrentSong}" />
+                <view:Radio BackgroundColor="{StaticResource DarkGray}" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="History">
+        <ContentPage.BindingContext>
+            <vm:RadioPageViewModel />
+        </ContentPage.BindingContext>
+        <ContentPage.Content>
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Label Margin="20,20,20,20" Text="History" HorizontalTextAlignment="Center" />
+                    <ListView Margin="0,0,0,0" Footer="" RowHeight="100" BackgroundColor="Transparent" ItemsSource="{Binding History}">
+                        <ListView.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.Column="0" Margin="10,10,10,10" VerticalOptions="FillAndExpand" Source="{Binding artwork_url}" />
+                                        <Label Grid.Column="1" TextColor="White" Text="{Binding title}" VerticalOptions="CenterAndExpand"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <view:Radio Grid.Row="1" BackgroundColor="{StaticResource DarkGray}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" />
+            </Grid>
+        </ContentPage.Content>
+    </ContentPage>
+</CarouselPage>

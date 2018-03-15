@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView Padding="30,10,30,20" BackgroundColor="{StaticResource DarkGray}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Radio021.ViewModels" x:Class="Radio021.Views.Radio">
+ <ContentPage.BindingContext>
+        <vm:RadioViewModel />
+    </ContentPage.BindingContext>
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" VerticalOptions="End">
+            <Button Margin="5,0" HeightRequest="50" WidthRequest="50" Command="{Binding PlayStopCommand}" Image="{Binding ButtonImage}" />
+            <StackLayout Orientation="Vertical" >
+                <Label Text="{Binding SongInfo}" Margin="5,0" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

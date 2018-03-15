@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Radio021.Models; assembly=Radio021" xmlns:view="clr-namespace:Radio021.Views; assembly=Radio021" x:Class="Radio021.MainPage" MasterBehavior="Popover" Title="Radio 021">
+    <MasterDetailPage.Master>
+        <ContentPage Padding="0,0,0,0" Icon="menu" Title="Radio 021" >
+            <StackLayout>
+                <ListView x:Name="listView" BackgroundColor="{StaticResource DarkRed}" SeparatorVisibility="None">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type local:MasterPageItem}">
+                            <local:MasterPageItem Title="Radio" IconSource="radio" TargetType="{x:Type view:RadioPage}" />
+                            <local:MasterPageItem Title="Web Page" IconSource="web" TargetType="{x:Type view:WebPage}" />
+                            <local:MasterPageItem Title="About App" IconSource="contact" TargetType="{x:Type view:AboutPage}" />
+                        </x:Array>
+                    </ListView.ItemsSource>
+                    <ListView.Header>
+                        <Label HeightRequest="60" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="Radio 021" StyleClass="Header" />
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10,10,10,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding IconSource}" />
+                                    <Label Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Text="{Binding Title}" StyleClass="Inverse" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Social Media" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Center" StyleClass="Subheader" />
+                            <StackLayout Grid.Row="2" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                                <Button Margin="10,10,10,10" WidthRequest="40" HeightRequest="40" x:Name="social_facebook" Image="facebook" />
+                                <Button Margin="10,10,10,10" WidthRequest="40" HeightRequest="40" x:Name="social_youtube" Image="youtube" />
+                                <Button Margin="10,10,10,10" WidthRequest="40" HeightRequest="40" x:Name="social_twitter" Image="twitter" />
+                                <Button Margin="10,10,10,10" WidthRequest="40" HeightRequest="40" x:Name="social_telegram" Image="telegram" />
+                            </StackLayout>
+                        </Grid>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <view:RadioPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

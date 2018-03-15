@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:vm="clr-namespace:Radio021.ViewModels"  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  xmlns:view="clr-namespace:Radio021.Views" x:Class="Radio021.Views.AboutPage" Title="About This App" Icon="contact" >
+    <ContentPage.BindingContext>
+        <vm:AboutPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
+            <Image Source="logofx" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="100" WidthRequest="100" />
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                    <Label HorizontalTextAlignment="Center"  FontAttributes="Bold" FontSize="22" Text="Radio 021" />
+                    <Label HorizontalTextAlignment="Center"  Text="Your App Info" />
+                    <Label Text=""/>
+                    <Label HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="22" Text="Any Question or Issues?" />
+                    <Button BackgroundColor="Maroon" TextColor="White" Text="Please Contact Us"  Command="{Binding OpenEmailCommand}"/>
+                    <Label Text=""/>
+                    <Label HorizontalTextAlignment="Center"  FontAttributes="Bold" FontSize="22" Text="WebSite:" />
+                    <Label HorizontalTextAlignment="Center"  Text="Your Custom Link" />
+                    <Button Text="Visit Website" BackgroundColor="Maroon" TextColor="White" Command="{Binding OpenWebCommand}"/>
+                    <Label Text=""/>
+                    <Label HorizontalTextAlignment="Center"  FontAttributes="Bold" FontSize="22" Text="Sponsored By:" />
+                    <Label HorizontalTextAlignment="Center"  Text="Sponsor website" />
+                    <Button Text="Visit Website" BackgroundColor="Maroon" TextColor="White" Command="{Binding OpenIOA}"/>
+                </StackLayout>
+            </ScrollView>
+            <view:Radio BackgroundColor="{StaticResource VeryDarkGray}" VerticalOptions="End" Grid.Row="2" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
